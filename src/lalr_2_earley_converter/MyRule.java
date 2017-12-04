@@ -1,5 +1,6 @@
+package lalr_2_earley_converter;
 
-public class Rule {
+public class MyRule {
 
 	enum RuleType {
 		Ignore, E2E_Binary, E2E_Unary, E2E_Link, E2ANY, ANY2E, E2E_Symetry;
@@ -17,7 +18,7 @@ public class Rule {
 	public int next_level = -1;
 	public String assoc = "";
 
-	Rule(String rule) {
+	MyRule(String rule) {
 		rule_str = rule;
 		String[] splitStr = rule.trim().split("\\s+");
 		//System.out.println(rule_str);
