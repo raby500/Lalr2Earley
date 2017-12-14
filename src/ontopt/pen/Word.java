@@ -1,7 +1,13 @@
 package ontopt.pen;
 
-public class Word
+import java.io.Serializable;
+
+public class Word implements Serializable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2301231701098328415L;
 	public String tag;
 	
 	public Word(String tag)
@@ -14,4 +20,12 @@ public class Word
 	{
 		return tag;
 	}
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (obj != null && obj.getClass() == getClass()) {
+            return tag.equals(((Word) obj).tag);
+        }
+        return false;
+    }
 }

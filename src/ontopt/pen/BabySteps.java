@@ -1,5 +1,6 @@
 package ontopt.pen;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -34,8 +35,12 @@ public class BabySteps
 		System.out.println(pt);
 	}
 	
-	public static class BabyLexer
+	public static class BabyLexer implements Serializable 
 	{
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 8192450900782066543L;
 		private Map<String, Pattern> patterns;
 		
 		public BabyLexer()
@@ -60,6 +65,10 @@ public class BabySteps
 		
 		public static class Token extends Word
 		{
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = -1992719405093944875L;
 			public String text;
 			
 			public Token(String tag, String value)
@@ -76,6 +85,14 @@ public class BabySteps
 					return String.format("%s:%s", tag, text);
 				}
 			}
+			
+		    @Override
+		    public boolean equals(Object obj) {
+		        if (obj instanceof Token) {
+		            return super.equals(obj) && text.equals(((Token) obj).text);
+		        }
+		        return false;
+		    }
 		}
 		
 		public List<Word> tokenize(String text)
@@ -86,5 +103,7 @@ public class BabySteps
 			}
 			return l;
 		}
+		
+		
 	}
 }

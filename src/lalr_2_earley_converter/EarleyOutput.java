@@ -1,5 +1,4 @@
 package lalr_2_earley_converter;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
